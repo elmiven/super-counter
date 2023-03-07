@@ -1,3 +1,200 @@
+html {
+background-color: beige;
+
+}
+
+
+.counterBody {
+
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  margin: -125px 0 0 -125px;
+
+  margin-right: 150px;
+  border: 3px solid lightgray;
+  background-color: lightskyblue;
+  border-radius: 20px;
+  width: 300px;
+  height: 280px;
+  padding-top: 0px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.settingsBody {
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  top: 50%;
+  left: 39%;
+  margin: -125px 0 0 -125px;
+
+  margin-right: 150px;
+  border: 3px solid lightgray;
+  background-color: lightskyblue;
+  border-radius: 20px;
+  width: 300px;
+  height: 250px;
+  padding-top: 0px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+
+
+.hoverdiv {
+  border: 3px solid white;
+  padding: 15px;
+  border-radius: 20px;
+  color: white;
+  font-weight:bold;
+  background-color: red;
+  z-index: 10;
+
+
+}
+
+
+.changeSettings {
+  border: 3px solid white;
+  padding: 15px;
+  border-radius: 20px;
+  color: white;
+  font-weight:bold;
+  background-color: cornflowerblue;
+  z-index: 10;
+
+
+}
+
+
+
+.counterButtonBody {
+  border: 3px solid white;
+  padding: 15px;
+  border-radius: 20px;
+  color: white;
+}
+
+.input {
+
+  background-color: lightcyan;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  color:cornflowerblue;
+  font-weight: bold;
+  padding-left:10px;
+}
+
+
+.inputError {
+  background-color: pink;
+  border-radius: 20px;
+  outline: red;
+  color:darkred;
+  border: none;
+  font-weight: bold;
+  padding-left:10px;
+}
+
+
+
+.App h1 {
+  margin-top: 15px;
+  padding-top: 0px;
+  border: 4px solid lightcyan;
+  border-radius: 10px;
+  color: lightcyan;
+
+}
+
+.counter {
+  border-radius: 5px;
+  border: 3px solid white;
+  padding: 0px;
+  color: white;
+  text-shadow: #Fff 3px 2 25px;
+  font-size: 30px;
+  font-weight: bold;
+  width: 50px;
+  margin: auto;
+
+}
+
+
+.counter-max {
+  border-radius: 5px;
+  border: 3px solid red;
+  padding: 0px;
+  color: red;
+  text-shadow: #f00 2px 0 10px;
+  box-shadow: 0 0 15px #ff7777;
+  font-size: 30px;
+  font-weight: bold;
+  width: 50px;
+  margin: auto;
+
+}
+
+
+
+.button {
+  margin-top: 18px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  outline: none;
+  background-color: cornsilk;
+  border: 0px;
+  width: 100px;
+  color: lightskyblue;
+}
+
+.button:disabled {
+  background-color: rgb(173, 222, 252);
+  color: lightskyblue;
+
+}
+
+.button:active {
+  background-color: yellow;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .App {
   text-align: center;
 }
