@@ -26,14 +26,16 @@ function App() {
 
 
   if (!localStorage.getItem("max")) {
-    maxVal = localStorage.setItem("max", JSON.stringify(6))
+    maxVal = localStorage.setItem("max", JSON.stringify(5))
+    maxVal = Number(localStorage.getItem("max"))
   } else {
     maxVal = Number(localStorage.getItem("max"))
 
   }
 
   if (!localStorage.getItem("start")) {
-    startVal = localStorage.setItem("start", JSON.stringify(1))
+    startVal = localStorage.setItem("start", JSON.stringify(0))
+    startVal = Number(localStorage.getItem("start"))
   } else {
     startVal = Number(localStorage.getItem("start"))
   }
