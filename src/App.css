@@ -4,14 +4,39 @@ background-color: beige;
 }
 
 
+
+.AppCount {
+  
+  position: absolute;
+  top: 45%;
+  left: 10%;
+  right: 10%;
+   margin: -125px 400px 0 270px;
+
+  /* margin-right: 150px;
+  border: 3px solid red; */
+
+  /* border-radius: 20px; */
+  /* width: 0px;
+  height: 280px; */
+  padding: 0px;
+
+
+}
+
+
+
+
+
+
 .counterBody {
 
-  position: absolute;
+  /* position: absolute; */
   top: 50%;
-  left: 60%;
-  margin: -125px 0 0 -125px;
+  /* left: 0%; */
+  margin: -150px -110px 0 -225px;
 
-  margin-right: 150px;
+  /* margin-right: 150px; */
   border: 3px solid lightgray;
   background-color: lightskyblue;
   border-radius: 20px;
@@ -20,17 +45,18 @@ background-color: beige;
   padding-top: 0px;
   padding-left: 30px;
   padding-right: 30px;
+
 }
 
 .settingsBody {
-  width: 250px;
-  height: 250px;
-  position: absolute;
-  top: 50%;
-  left: 39%;
-  margin: -125px 0 0 -125px;
 
-  margin-right: 150px;
+  /* position: absolute; */
+
+  top: 60%;
+  /* left: 0%; */
+  margin: 15px -110px 0 -225px;
+
+  /* margin-right: 150px; */
   border: 3px solid lightgray;
   background-color: lightskyblue;
   border-radius: 20px;
@@ -39,6 +65,7 @@ background-color: beige;
   padding-top: 0px;
   padding-left: 30px;
   padding-right: 30px;
+
 }
 
 

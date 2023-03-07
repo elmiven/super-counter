@@ -87,11 +87,11 @@ function App() {
 
 
   return (
-    <div className="">
-
+    <div className="AppCount">
+    <Counter counter={counter} startVal={startVal} maxVal={maxVal} setCounter={setCounter} error={error} setError={setError} SetChangeSettings={SetChangeSettings} changeSettings={changeSettings}/>
+    <div></div>
       <Settings counter={counter} startVal={startVal} maxVal={maxVal} setCounter={setCounter} error={error} setError={setError} SetChangeSettings={SetChangeSettings}/>
-      <Counter counter={counter} startVal={startVal} maxVal={maxVal} setCounter={setCounter} error={error} setError={setError} SetChangeSettings={SetChangeSettings} changeSettings={changeSettings}/>
-
+      
     </div>
   );
 }
