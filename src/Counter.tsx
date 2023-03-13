@@ -6,9 +6,9 @@ import Button from "./Button";
 function Counter(props: CounterPropsType) {
 
   //condition to disable increment button
-  let disableIncButton = (props.counter === props.maxVal) || (props.error !== '')
+  let disableIncButton = (props.counter === props.maxVal) || (props.error !== '') || (props.changeSettings)
   //condition to disable reset button
-  let disableResetButton = (props.counter === props.startVal) || (props.error !== '')
+  let disableResetButton = (props.counter === props.startVal) || (props.error !== '') || (props.changeSettings)
 
 
   //increment button handler
@@ -40,7 +40,7 @@ function Counter(props: CounterPropsType) {
       <div className="counterBody">
         <h1>SUPER-COUNTER</h1>
         <div className={"counterButtonBody"} >
-          
+
           <div className={props.error ? "hoverdiv" : props.changeSettings ? "changeSettings" : (props.counter === props.maxVal) ? "counter-max" : "counter"}>
             {props.error || props.changeSettings ? "" : props.counter}
             {props.error}
