@@ -7,9 +7,21 @@ import Settings from './Settings';
 import { start } from 'repl';
 
 
-type CounterType = {
+export type CounterPropsType = {
   counter: number
+  startVal: number
+  maxVal: number
+  setCounter: (counter: number) => void
+  error: string
+  setError: (error: string) => void
+  SetChangeSettings: (changeSettings: boolean) => void
+  changeSettings: boolean
 }
+
+
+
+
+
 
 
 function App() {
@@ -24,13 +36,12 @@ function App() {
   let maxVal;
 
 
-
+  //Set Start and Max values to the localStorage
   if (!localStorage.getItem("max")) {
     maxVal = localStorage.setItem("max", JSON.stringify(5))
     maxVal = Number(localStorage.getItem("max"))
   } else {
     maxVal = Number(localStorage.getItem("max"))
-
   }
 
   if (!localStorage.getItem("start")) {
@@ -39,6 +50,7 @@ function App() {
   } else {
     startVal = Number(localStorage.getItem("start"))
   }
+
 
   // console.log(startVal);
   // console.log(maxVal);
@@ -51,12 +63,13 @@ function App() {
   // }, [value]  )
 
 
-  const [counter, setCounter] = useState(startVal)
+  //state for counter
+  const [counter, setCounter] = useState<number>(startVal)
+  //state to set the error
+  const [error, setError] = useState<string>('')
+  //state to show the editing mode
+  const [changeSettings, SetChangeSettings] = useState<boolean>(false)
 
-  const [error, setError] = useState('')
-
-  const [changeSettings, SetChangeSettings] = useState(false)
-  
 
   // console.log(counter);
   // const incHandler = () => {
@@ -88,10 +101,29 @@ function App() {
 
   return (
     <div className="AppCount">
-    <Counter counter={counter} startVal={startVal} maxVal={maxVal} setCounter={setCounter} error={error} setError={setError} SetChangeSettings={SetChangeSettings} changeSettings={changeSettings}/>
-    <div></div>
-      <Settings counter={counter} startVal={startVal} maxVal={maxVal} setCounter={setCounter} error={error} setError={setError} SetChangeSettings={SetChangeSettings}/>
-      
+      <Counter
+        counter={counter}
+        startVal={startVal}
+        maxVal={maxVal}
+        setCounter={setCounter}
+        error={error}
+        setError={setError}
+        SetChangeSettings={SetChangeSettings}
+        changeSettings={changeSettings}
+      />
+      <div></div>
+      <Settings
+        counter={counter}
+        startVal={startVal}
+        maxVal={maxVal}
+        setCounter={setCounter}
+        error={error}
+        setError={setError}
+        SetChangeSettings={SetChangeSettings}
+        changeSettings={changeSettings}
+      />
+
+
     </div>
   );
 }

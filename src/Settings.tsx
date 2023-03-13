@@ -1,81 +1,71 @@
 import { useEffect, useState } from "react";
+import { CounterPropsType } from "./App";
 import Button from "./Button";
 
 
 
 
-function Settings(props: any) {
 
 
+function Settings(props: CounterPropsType) {
+
+    //state to save Start and Max setting when changin in inputs (before send it to the local state with set button) 
+    const [startSetting, setStartSetting] = useState(Number(localStorage.getItem("start")))
+    const [maxSetting, setMaxSetting] = useState(Number(localStorage.getItem("max")))
 
 
-
+    //handler for button set settings to the localStorage  
     const setValHandler = () => {
         // props.setMaxVal(maxSetting);
         // props.setStartVal(startSetting);
-
-
 
         localStorage.setItem("max", JSON.stringify(maxSetting))
         localStorage.setItem("start", JSON.stringify(startSetting))
 
         props.setCounter(startSetting);
 
-
         props.SetChangeSettings(false)
         // localStorage.setItem("keyK", "test" )
         // alert(localStorage.getItem("1"))
-
-
     }
 
 
 
-
+    //handler for input start settings
     const inputStartHandler = (e: any) => {
+
         props.SetChangeSettings(true)
+        setStartSetting(+e.target.value);
+
         if ((+e.target.value >= 0) && (+e.target.value < maxSetting)) {
-            setStartSetting(+e.target.value);
             props.setError("");
         } else if (+e.target.value < 0) {
-            setStartSetting(+e.target.value);
             props.setError("Error: Start value can't be less than 0! ")
         } else if (+e.target.value >= maxSetting) {
-            setStartSetting(+e.target.value);
             props.setError("Error: Start value can't be more or equal max value! ")
-
         }
-
-
     }
 
+
+    //handler for input max settings
     const inputMaxHandler = (e: any) => {
+
         props.SetChangeSettings(true)
+        setMaxSetting(+e.target.value);
+
         if ((+e.target.value > 0) && (+e.target.value > startSetting)) {
-            setMaxSetting(+e.target.value);
             props.setError("");
-        } else if (+e.target.value < 0){
-            setMaxSetting(+e.target.value);
+        } else if (+e.target.value < 0) {
             props.setError("Error: Max value can't be less than 1! ")
         } else if (+e.target.value <= startSetting) {
-            setMaxSetting(+e.target.value);
-            props.setError("Error: Max value can't be less or equal start value! ")
 
+            props.setError("Error: Max value can't be less or equal start value! ")
         }
     }
-
-
-    const [startSetting, setStartSetting] = useState(Number(localStorage.getItem("start")))
-    const [maxSetting, setMaxSetting] = useState(Number(localStorage.getItem("max")))
-
 
 
 
     const HoverHandler = () => {
-
-
-
-
     }
 
 
@@ -87,10 +77,26 @@ function Settings(props: any) {
             <div className="settingsBody" onMouseOver={HoverHandler} >
                 <h1>SETTINGS</h1>
                 <div className="counterButtonBody">
-                    <span>max</span> <input type="number" name="inputmax" onChange={inputMaxHandler} value={maxSetting} className={props.error ? "inputError" : "input"}/>
+                    <span>max</span>
+                    <input
+                        type="number"
+                        name="inputmax"
+                        onChange={inputMaxHandler}
+                        value={maxSetting}
+                        className={props.error ? "inputError" : "input"} />
                     <div className=""></div>
-                    <span>start</span> <input type="number" name="inputstart" onChange={inputStartHandler} value={startSetting} className={props.error ? "inputError" : "input"}/>
-                    <Button name={"SET"} callBack={setValHandler} disabled={(props.error)}/>
+                    <span>start</span>
+                    <input
+                        type="number"
+                        name="inputstart"
+                        onChange={inputStartHandler}
+                        value={startSetting}
+                        className={props.error ? "inputError" : "input"} />
+                    <Button
+                        name={"SET"}
+                        callBack={setValHandler}
+                        disabled={(props.error !=='')}
+                    />
                 </div>
 
             </div>
