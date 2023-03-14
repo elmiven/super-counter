@@ -10,8 +10,19 @@ import Button from "./Button";
 function Settings(props: CounterPropsType) {
 
     //state to save Start and Max setting when changin in inputs (before send it to the local state with set button) 
-    const [startSetting, setStartSetting] = useState(Number(localStorage.getItem("start")))
-    const [maxSetting, setMaxSetting] = useState(Number(localStorage.getItem("max")))
+    const [startSetting, setStartSetting] = useState(props.startVal)   //(Number(localStorage.getItem("start")))
+    const [maxSetting, setMaxSetting] = useState(props.maxVal)  //(Number(localStorage.getItem("max")))
+
+    useEffect(() => {
+    if (localStorage.getItem("max")) {
+        setMaxSetting(Number(localStorage.getItem("max")))
+      }
+      if (localStorage.getItem("start")) {
+  
+        setStartSetting(Number(localStorage.getItem("start")))
+      }
+    }, [])
+
 
 
     //handler for button set settings to the localStorage  
@@ -19,12 +30,14 @@ function Settings(props: CounterPropsType) {
         // props.setMaxVal(maxSetting);
         // props.setStartVal(startSetting);
 
+        props.setMaxVal(maxSetting)
+        props.setStartVal(startSetting)
         localStorage.setItem("max", JSON.stringify(maxSetting))
         localStorage.setItem("start", JSON.stringify(startSetting))
 
         props.setCounter(startSetting);
 
-        props.SetChangeSettings(false)
+        props.setChangeSettings(false)
         // localStorage.setItem("keyK", "test" )
         // alert(localStorage.getItem("1"))
     }
@@ -34,7 +47,7 @@ function Settings(props: CounterPropsType) {
     //handler for input start settings
     const inputStartHandler = (e: any) => {
 
-        props.SetChangeSettings(true)
+        props.setChangeSettings(true)
         setStartSetting(+e.target.value);
 
         if ((+e.target.value >= 0) && (+e.target.value < maxSetting)) {
@@ -50,7 +63,7 @@ function Settings(props: CounterPropsType) {
     //handler for input max settings
     const inputMaxHandler = (e: any) => {
 
-        props.SetChangeSettings(true)
+        props.setChangeSettings(true)
         setMaxSetting(+e.target.value);
 
         if ((+e.target.value > 0) && (+e.target.value > startSetting)) {
@@ -95,7 +108,7 @@ function Settings(props: CounterPropsType) {
                     <Button
                         name={"SET"}
                         callBack={setValHandler}
-                        disabled={(props.error !=='')}
+                        disabled={(props.error !== '')}
                     />
                 </div>
 

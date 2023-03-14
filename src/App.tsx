@@ -7,18 +7,20 @@ import Settings from './Settings';
 import { start } from 'repl';
 
 
+
+
 export type CounterPropsType = {
   counter: number
-  startVal: number
-  maxVal: number
   setCounter: (counter: number) => void
+  startVal: number
+  setStartVal: (startVal: number) => void
+  maxVal: number
+  setMaxVal: (maxVal: number) => void
   error: string
   setError: (error: string) => void
-  SetChangeSettings: (changeSettings: boolean) => void
   changeSettings: boolean
+  setChangeSettings: (changeSettings: boolean) => void
 }
-
-
 
 
 
@@ -30,37 +32,54 @@ function App() {
   // let maxVal = 5;
 
   // const [startVal, setStartVal] = useState(0)
-  // const [maxVal, setMaxVal] = useState(5)
 
-  let startVal;
-  let maxVal;
+
+  const [maxVal, setMaxVal] = useState(5)
+  const [startVal, setStartVal] = useState(0)
+
+
+  useEffect(() => {
+
+
+
+    if (localStorage.getItem("max")) {
+      setMaxVal(Number(localStorage.getItem("max")))
+    }
+    if (localStorage.getItem("start")) {
+
+      setStartVal(Number(localStorage.getItem("start")))
+    }
+  }, [])
+
+
+
+
+  // let startVal = 0;
+  // let maxVal = 5
+
 
 
   //Set Start and Max values to the localStorage
-  if (!localStorage.getItem("max")) {
-    maxVal = localStorage.setItem("max", JSON.stringify(5))
-    maxVal = Number(localStorage.getItem("max"))
-  } else {
-    maxVal = Number(localStorage.getItem("max"))
-  }
 
-  if (!localStorage.getItem("start")) {
-    startVal = localStorage.setItem("start", JSON.stringify(0))
-    startVal = Number(localStorage.getItem("start"))
-  } else {
-    startVal = Number(localStorage.getItem("start"))
-  }
+  // if (!localStorage.getItem("max")) {
+  //   maxVal = localStorage.setItem("max", JSON.stringify(5))
+  //   maxVal = Number(localStorage.getItem("max"))
+  // } else {
+  //   maxVal = Number(localStorage.getItem("max"))
+  // }
 
+  // if (!localStorage.getItem("start")) {
+  //   startVal = localStorage.setItem("start", JSON.stringify(0))
+  //   startVal = Number(localStorage.getItem("start"))
+  // } else {
+  //   startVal = Number(localStorage.getItem("start"))
+  // }
 
+  // console.log(maxVal);
   // console.log(startVal);
   // console.log(maxVal);
 
 
-  // startVal = localStorage.getItem("start")
-  // maxVal = localStorage.getItem("max")
-  // useEffect( ()=>{
-  //   localStorage.setItem(1, JSON.stringify(value))
-  // }, [value]  )
 
 
   //state for counter
@@ -68,7 +87,7 @@ function App() {
   //state to set the error
   const [error, setError] = useState<string>('')
   //state to show the editing mode
-  const [changeSettings, SetChangeSettings] = useState<boolean>(false)
+  const [changeSettings, setChangeSettings] = useState<boolean>(false)
 
 
   // console.log(counter);
@@ -103,24 +122,28 @@ function App() {
     <div className="AppCount">
       <Counter
         counter={counter}
-        startVal={startVal}
-        maxVal={maxVal}
         setCounter={setCounter}
+        startVal={startVal}
+        setStartVal={setStartVal}
+        maxVal={maxVal}
+        setMaxVal={setMaxVal}
         error={error}
         setError={setError}
-        SetChangeSettings={SetChangeSettings}
         changeSettings={changeSettings}
+        setChangeSettings={setChangeSettings}
       />
       <div></div>
       <Settings
         counter={counter}
-        startVal={startVal}
-        maxVal={maxVal}
         setCounter={setCounter}
+        startVal={startVal}
+        setStartVal={setStartVal}
+        maxVal={maxVal}
+        setMaxVal={setMaxVal}
         error={error}
         setError={setError}
-        SetChangeSettings={SetChangeSettings}
         changeSettings={changeSettings}
+        setChangeSettings={setChangeSettings}
       />
 
 
