@@ -101,6 +101,7 @@ function App() {
 
   return (
     <div className="AppCount">
+      123
       <Counter
         counter={counter}
         startVal={startVal}
