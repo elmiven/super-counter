@@ -1,5 +1,5 @@
 html {
-background-color: beige;
+background-color: darkgray;
 
 }
 
@@ -38,7 +38,7 @@ background-color: beige;
 
   /* margin-right: 150px; */
   border: 3px solid lightgray;
-  background-color: lightskyblue;
+  background-color: deepskyblue;
   border-radius: 20px;
   width: 300px;
   height: 280px;
